@@ -76,7 +76,7 @@ LLM_MODEL=deepseek-v3.2
 
 # Embedding 向量配置
 EMBEDDING_MODEL=doubao-embedding-vision-250615
-EMBEDDING_BASE_URL=https://ark.cn-beijing.volces.com/api/coding/v3
+EMBEDDING_BASE_URL=https://ark.cn-beijing.volces.com/api/v3
 
 # Qdrant 向量数据库地址
 QDRANT_URL=http://localhost:6333
