@@ -1,5 +1,9 @@
 # CodeAgent
 
+[![PyPI](https://img.shields.io/pypi/v/weijie-codeagent)](https://pypi.org/project/weijie-codeagent/)
+[![Python](https://img.shields.io/pypi/pyversions/weijie-codeagent)](https://pypi.org/project/weijie-codeagent/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 基于 **LangGraph** 的 CLI 编程 Agent 助手，支持意图路由、任务拆解、分层记忆、11 种工具调用和实时推理展示。
 
 ```
@@ -43,7 +47,7 @@ python -m venv .venv
 .venv\Scripts\activate   # Windows
 # source .venv/bin/activate  # Linux/Mac
 
-pip install codeagent
+pip install weijie-codeagent -i https://pypi.org/simple
 ```
 
 或从源码安装：
@@ -56,20 +60,32 @@ pip install -e .
 
 ### 配置
 
+推荐使用全局配置文件，在任意目录都能直接使用：
+
 ```bash
-cp .env.example .env
-# 编辑 .env，填入 API Key
+# Windows
+mkdir %USERPROFILE%\.codeagent
+# 在 C:\Users\<你的用户名>\.codeagent\ 下创建 .env 文件
 ```
 
-最小配置：
-
 ```env
+# LLM 配置（必填）
 LLM_API_KEY=your_api_key_here
 LLM_BASE_URL=https://ark.cn-beijing.volces.com/api/coding/v3
 LLM_MODEL=deepseek-v3.2
+
+# Embedding 向量配置
+EMBEDDING_MODEL=doubao-embedding-vision-250615
+EMBEDDING_BASE_URL=https://ark.cn-beijing.volces.com/api/coding/v3
+
+# Qdrant 向量数据库地址
+QDRANT_URL=http://localhost:6333
+
+# 工具操作的根目录（可选，默认为启动命令时所在目录）
+# WORKSPACE_DIR=E:\your\project
 ```
 
-也支持全局配置 `~/.codeagent/.env`，适合多项目共用同一 Key。
+也可以在项目目录下创建 `.env` 文件（仅对该目录生效）。
 
 ### 启动 Qdrant（向量记忆，可选）
 
@@ -151,7 +167,7 @@ Agent 会根据需要自动调用：
 安装 MCP SDK 后即可使用：
 
 ```bash
-pip install "codeagent[mcp]"
+pip install "weijie-codeagent[mcp]"
 ```
 
 ## 架构
