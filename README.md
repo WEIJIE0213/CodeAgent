@@ -49,7 +49,7 @@ pip install codeagent
 或从源码安装：
 
 ```bash
-git clone https://github.com/your-username/codeagent
+git clone https://github.com/WEIJIE0213/codeagent
 cd codeagent
 pip install -e .
 ```
