@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "codeagent"
+version = "0.1.0"
+description = "CLI coding agent powered by LangGraph — intent routing, task decomposition, hierarchical memory, and 11 built-in tools"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+keywords = ["llm", "agent", "langgraph", "cli", "coding-assistant"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain-openai>=0.1.0",
+    "langchain-core>=0.2.0",
+    "langchain>=0.2.0",
+    "typer>=0.12.0",
+    "rich>=13.0.0",
+    "pydantic-settings>=2.0.0",
+    "httpx>=0.27.0",
+    "qdrant-client>=1.9.0",
+]
+
+[project.scripts]
+codeagent = "codeagent.main:app"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-mock>=3.14"]
+mcp = ["mcp>=1.0.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["codeagent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"

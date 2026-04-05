@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 打包构建
+dist/
+build/
+*.egg-info/
+*.egg
+
+# 运行时数据（不提交）
+.env
+codeagent.db
+qdrant_storage/
+chroma_db/
+.codeagent_todos.json
+
+# 测试缓存
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# 规划文件（本地使用，不提交到公开仓库）
+findings.md
+task_plan.md
+progress.md
+.claude/
